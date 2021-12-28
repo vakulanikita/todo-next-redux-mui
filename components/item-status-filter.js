@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ChangeFilter } from '../redux/actions';
-import {
-  ButtonGroup,
-  Button
-} from '@chakra-ui/react'
+import { ButtonGroup, Button } from '@mui/material'
 
 export default function ItemStatusFilter() {
   const filter = useSelector(state => state.todoReducer.filter)
@@ -17,13 +14,13 @@ export default function ItemStatusFilter() {
 
   const elements = buttons.map(({name, label}) => {
     const isActive = filter === name;
-    const clazz = isActive ? 'solid' : 'outline';
+    const clazz = isActive ? 'contained' : 'outlined';
     return (
       <Button
         _focus={{
           boxShadow: '0'
         }}
-        colorScheme="purple"
+        color="primary"
         variant={clazz}
         key={name}
         onClick={() => dispatch(ChangeFilter(name))}
@@ -34,7 +31,7 @@ export default function ItemStatusFilter() {
   })
 
   return (
-    <ButtonGroup spacing={0}>
+    <ButtonGroup>
       { elements }
     </ButtonGroup>
   );

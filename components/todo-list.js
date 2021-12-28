@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import {
   List,
   ListItem
-} from '@chakra-ui/react'
+} from '@mui/material'
 import TodoListItem from './todo-list-item';
 
 
@@ -37,7 +37,7 @@ function TodoList() {
 
   const elements = visibleItems.map((item) => {
     return (
-      <ListItem key={item.id}>
+      <ListItem sx={{padding: '0', display: 'block'}} key={item.id}>
         {/* item = {id, label, important, done} */}
         <TodoListItem {...item} />
       </ListItem>
@@ -45,7 +45,7 @@ function TodoList() {
   });
 
   return (
-    <List>
+    <List sx={{padding: '0'}}>
       { elements }
     </List>
   );

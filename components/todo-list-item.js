@@ -1,55 +1,72 @@
 import {
+  Stack,
+  Typography,
   IconButton,
-  Text,
-  Flex
-} from '@chakra-ui/react'
+  Button
+} from '@mui/material'
 import { useDispatch } from 'react-redux';
-import { DeleteIcon, WarningIcon } from '@chakra-ui/icons'
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { ToggleDoneAction, ToggleImportantAction, RemoveTodoAction } from '../redux/actions';
+
 export default function TodoListItem({ id, done, important, label }) {
   const dispatch = useDispatch()
 
   return (
-    <Flex
-      fontSize="xl"
-      justifyContent="space-between"
+    <Stack
+      flexDirection="row"
       alignItems="flex-start"
-      bg="whiteAlpha.800"
-      borderRadius={6}
-      px={4}
-      py={1}
-      mb={2}
+      justifyContent="space-between"
+      borderRadius={1}
+      sx={{
+        fontSize: '1.25rem',
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        px: 2,
+        py: "6px",
+        mb: 1
+      }}
     >
-      <Text
-        as="span"
-        textDecor={done ? "line-through" : "none"}
+      <Typography
+        variant="h6"
+        textDecoration={done ? "lineThrough" : "none"}
         color={important ? "green" : "inherit"}
         fontWeight={important ? "semibold" : "inherit"}
-        lineHeight="shorter"
-        cursor="pointer"
+        sx={{
+          textDecoration: `${done ? "line-through" : "none"}`,
+          cursor: 'pointer'
+        }}
         onClick={() => {dispatch(ToggleDoneAction(id))}}
       >
         {label}
-      </Text>
+      </Typography>
 
-      <Flex flexWrap="nowrap">
+      <Stack flexDirection="row" flexWrap="nowrap">
         <IconButton
-          size="sm"
-          icon={<WarningIcon />}
-          colorScheme="green"
-          variant="outline"
-          mr={1}
+          sx={{
+            marginRight: '4px',
+            border: '1px solid green',
+            borderRadius: '6px',
+            color: 'green',
+            padding: '6px'
+          }}
           onClick={() => {dispatch(ToggleImportantAction(id))}}
-        />
+        >
+          <PriorityHighIcon fontSize="small" />
+        </IconButton>
+        
         <IconButton
-          size="sm"
-          icon={<DeleteIcon />}
-          colorScheme="red"
-          variant="outline"
+          sx={{
+            border: '1px solid red',
+            borderRadius: '6px',
+            color: 'red',
+            padding: '6px'
+          }}
           onClick={() => {dispatch(RemoveTodoAction(id))}}
-        />
-      </Flex>
+        >
+          <DeleteIcon fontSize="small"/>
+        </IconButton>
+      </Stack>
 
-    </Flex>
+    </Stack>
   );
 }

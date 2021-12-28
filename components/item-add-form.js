@@ -1,11 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  Input,
-  Button,
-  Flex,
-  Box
-} from '@chakra-ui/react'
+import { Stack, TextField, Box, Button } from '@mui/material'
 import { AddTodoAction } from '../redux/actions'
 
 export default function ItemAddForm() {
@@ -25,27 +20,28 @@ export default function ItemAddForm() {
         {/* Добавление value={label} сделало input controlled elem
             Также, когда React устанавливает value, это не приводит к onChange
             onChange() обновляет state, а state обновляет value */}
-        <Flex>
-          <Input
-            className="form-control" 
-            type="text"
-            bg="white"
-            w="auto"
-            flexGrow="1"
-            mr="1"
+        <Stack flexDirection="row">
+          <TextField
             placeholder="What needs to be done"
             onChange={e => setLabel(e.target.value)}
             value={label}
+            sx={{
+              w: 'auto',
+              padding: 0,
+              flexGrow: 1,
+              marginRight: '4px',
+            }}
           />
           <Button
             type="submit"
             className="btn btn-outline-secondary"
             colorScheme="purple"
-            variant="outline"
+            color="primary"
+            variant="outlined"
           >
             Add Item
           </Button>
-        </Flex>
+        </Stack>
       </form>
     </Box>
   )

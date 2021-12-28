@@ -1,36 +1,36 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import {
-  Flex,
-  Heading
-} from '@chakra-ui/react'
+  Stack,
+  Typography,
+} from '@mui/material'
+import { grey } from '@mui/material/colors';
 
 export default function TodoHeader() {
   const todoData = useSelector(state => state.todoReducer.todoData)
   const doneCount = todoData.filter((el) => el.done).length;
   const todoCount = todoData.length - doneCount;
-
   return (
-    <Flex
+    <Stack
+      direction="row"
       justifyContent="space-between"
       alignItems="flex-end"
     >
-      <Heading
-        as="h1"
-        flexFlow={1}
-        lineHeight="shorter"
-        fontWeight="bold"
+      <Typography
+        variant="h1"
+        fontWeight="medium"
+        sx={{lineHeight: 1.25, fontSize: "2.25rem"}}
       >
         Todo List
-      </Heading>
-      <Heading
-        as="h2"
-        fontSize="xl"
-        color="gray.600"
-        fontWeight="medium"
+      </Typography>
+      <Typography
+        variant="h2"
+        fontWeight="regular"
+        color={grey[800]}
+        sx={{fontSize: "1.25rem"}}
       >
         {todoCount} more to do, {doneCount} done
-      </Heading>
-    </Flex>
+      </Typography>
+    </Stack>
   );
 };

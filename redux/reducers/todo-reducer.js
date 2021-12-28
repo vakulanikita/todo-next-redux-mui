@@ -19,7 +19,7 @@ function createTodoItem(label) {
     label,
     important: false,
     done: false,
-    id: nanoid(8),
+    id: nanoid(8), // nanoid generates a unique 8-digit id
   }
 }
 
