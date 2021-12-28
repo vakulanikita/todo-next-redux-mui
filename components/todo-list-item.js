@@ -6,12 +6,8 @@ import {
 import { useDispatch } from 'react-redux';
 import { DeleteIcon, WarningIcon } from '@chakra-ui/icons'
 import { ToggleDoneAction, ToggleImportantAction, RemoveTodoAction } from '../redux/actions';
-// import { useTodoContext } from '../context/todo-context';
-
 export default function TodoListItem({ id, done, important, label }) {
-  // console.log(id, done, important, label);
   const dispatch = useDispatch()
-  // const {onDeleted, onToggleImportant, onToggleDone} = useTodoContext()
 
   return (
     <Flex

@@ -4,15 +4,11 @@ import {
   Flex,
   Heading
 } from '@chakra-ui/react'
-// import { useTodoContext } from '../context/todo-context';
 
 export default function TodoHeader() {
-
   const todoData = useSelector(state => state.todoReducer.todoData)
   const doneCount = todoData.filter((el) => el.done).length;
   const todoCount = todoData.length - doneCount;
-
-  // const { doneCount, todoCount } = useTodoContext()
 
   return (
     <Flex

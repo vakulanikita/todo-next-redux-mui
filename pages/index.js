@@ -3,7 +3,6 @@ import {
   Box,
   Flex
 } from '@chakra-ui/react'
-
 import TodoHeader from '../components/todo-header';
 import SearchPanel from '../components/search-panel';
 import TodoList from '../components/todo-list';

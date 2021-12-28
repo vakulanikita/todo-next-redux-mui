@@ -4,7 +4,6 @@ import {
   ListItem
 } from '@chakra-ui/react'
 import TodoListItem from './todo-list-item';
-// import { useTodoContext } from '../context/todo-context'
 
 
 function TodoList() {
@@ -35,7 +34,6 @@ function TodoList() {
   const term = useSelector(state => state.todoReducer.term);
   const filter = useSelector(state => state.todoReducer.filter)
   const visibleItems = todoFilter(todoSearch(todoData, term), filter);
-  // console.log(...todoData);
 
   const elements = visibleItems.map((item) => {
     return (

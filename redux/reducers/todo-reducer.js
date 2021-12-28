@@ -1,4 +1,12 @@
 import { nanoid } from 'nanoid'
+import {
+  ADD_TODO,
+  REMOVE_TODO,
+  TOGGLE_DONE,
+  TOGGLE_IMPORTANT,
+  CHANGE_TERM,
+  CHANGE_FILTER
+} from '../types.js'
 
 const initialState = {
   todoData: [createTodoItem('Drink Coffee')],
@@ -28,15 +36,14 @@ function toggleProperty(arr, id, propName) {
   ]
 }
 
-
 export const todoReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case 'ADD_TODO':
+    case ADD_TODO:
       const newItem = createTodoItem(action.payload);
       return {...state, todoData: [...state.todoData, newItem]}
 
-    case 'REMOVE_TODO':
+    case REMOVE_TODO:
       const idx = state.todoData.findIndex((el) => el.id === action.payload)
       return {
         ...state,
@@ -46,16 +53,16 @@ export const todoReducer = (state = initialState, action) => {
         ]
       };
 
-    case 'TOGGLE_DONE':
+    case TOGGLE_DONE:
       return {...state, todoData: toggleProperty(state.todoData, action.payload, 'done')}
 
-    case 'TOGGLE_IMPORTANT':
+    case TOGGLE_IMPORTANT:
       return {...state, todoData: toggleProperty(state.todoData, action.payload, 'important')}
 
-    case 'CHANGE_TERM':
+    case CHANGE_TERM:
       return {...state, term: action.payload}
 
-    case 'CHANGE_FILTER':
+    case CHANGE_FILTER:
       return {...state, filter: action.payload}
 
     default:

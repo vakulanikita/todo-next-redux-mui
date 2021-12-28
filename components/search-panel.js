@@ -1,11 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { ChangeSearchTerm } from '../redux/actions';
 import { Input } from '@chakra-ui/react'
-import { useTodoContext } from '../context/todo-context';
 
 export default function SearchPanel() {
-
-  // const {term, setTerm} = useTodoContext();
   const dispatch = useDispatch()
   const term = useSelector(state => state.todoReducer.term)
 

@@ -4,7 +4,6 @@ import {
   ButtonGroup,
   Button
 } from '@chakra-ui/react'
-// import { useTodoContext } from '../context/todo-context';
 
 export default function ItemStatusFilter() {
   const filter = useSelector(state => state.todoReducer.filter)

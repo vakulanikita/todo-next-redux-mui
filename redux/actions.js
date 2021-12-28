@@ -1,10 +1,13 @@
-const ADD_TODO = 'ADD_TODO';
-const REMOVE_TODO = 'REMOVE_TODO'
-const TOGGLE_DONE = 'TOGGLE_DONE';
-const TOGGLE_IMPORTANT = 'TOGGLE_IMPORTANT';
-const CHANGE_TERM = 'CHANGE_TERM';
-const CHANGE_FILTER = 'CHANGE_FILTER'
+import {
+  ADD_TODO,
+  REMOVE_TODO,
+  TOGGLE_DONE,
+  TOGGLE_IMPORTANT,
+  CHANGE_TERM,
+  CHANGE_FILTER
+} from './types.js'
 
+// action creator
 export const AddTodoAction = (payload) => ({
   type: ADD_TODO,
   payload: payload

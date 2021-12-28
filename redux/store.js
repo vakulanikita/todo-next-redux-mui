@@ -1,7 +1,5 @@
-import { createStore, combineReducers, applyMiddleware, useSelector } from 'redux'
-// import { cashReducer } from './cashReducer';
-// import { customerReducer } from './customerReducer';
-import { todoReducer } from './reducers/todoReducer';
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { todoReducer } from './reducers/todo-reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk'
 
