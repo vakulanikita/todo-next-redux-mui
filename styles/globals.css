@@ -6,13 +6,13 @@ body {
 
 .MuiInputBase-root {
   background-color: #fff;
+  height: 40px !important;
 }
 
 .MuiInputBase-input {
-  padding: 0 1rem;
-  height: 40px;
+  padding: 0 1rem !important;
 }
 
 .MuiOutlinedInput-notchedOutline {
-  border-color: rgb(226, 232, 240);
+  border-color: rgb(226, 232, 240) !important;
 }
